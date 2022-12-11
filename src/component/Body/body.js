@@ -33,26 +33,26 @@ export const BodyDemo = () => {
     //     setShowPopUpData((prev) => !prev)
     // }
 
-    // const dataSource = [
-    //     {
-    //         key: "1",
-    //         title: "dsfMike",
-    //         no: "23",
-    //         mcp: "10 Downingvxcv Street",
-    //     },
-    //     {
-    //         key: "2",
-    //         title: "Johfdsfn",
-    //         no: "2",
-    //         mcp: "10 Downing Street",
-    //     },
-    //     {
-    //         key: "3",
-    //         title: "Mifsdfke",
-    //         no: "3",
-    //         mcp: "10 Downing Street",
-    //     },
-    // ];
+    const dataSource = [
+        {
+            // key: "1",
+            title: "dsfMike",
+            no: "23",
+            mcp: "10 Downingvxcv Street",
+        },
+        {
+            // key: "2",
+            title: "Johfdsfn",
+            no: "2",
+            mcp: "10 Downing Street",
+        },
+        {
+            // key: "3",
+            title: "Mifsdfke",
+            no: "3",
+            mcp: "10 Downing Street",
+        },
+    ];
 
 
     useEffect(() => {
@@ -66,7 +66,7 @@ export const BodyDemo = () => {
         console.log(data.message);
         };
         dataSource2();
-        console.log(datafetch);
+        // console.log(datafetch);
     }, []);
 
     useEffect(() => {
@@ -80,18 +80,10 @@ export const BodyDemo = () => {
           console.log(data.message);
         };
         dataSource3();
-        console.log(datafetchMcp);
+        // console.log(datafetchMcp);
     }, []);
         
     // }, [])
-
-    // const dataSource = axios.get('https://jsonplaceholder.typicode.com/todos/1');
-    // dataSource
-    //     .then(res => {
-    //         const persons = res.data;
-    //         return persons;
-    //         console.log(res)
-    //     });
 
 
     const columns = [
@@ -163,15 +155,14 @@ export const BodyDemo = () => {
                 announcement='Are you sure to delete this?'
             />
             {/* <PopUpData isShowPopUp={showPopUpData} setShowPopUp={setShowPopUpData} data={dataSource.map(data => data)} title={"Colector & Janitor"}/> */}
-            <PopUpData isShowPopUp={showPopUpData} setShowPopUp={setShowPopUpData} data={datafetch} title={"Colector & Janitor"}/> 
-            <PopUpMcp isShowPopUp={showPopUpMcp} setShowPopUp={setShowPopUpMcp} data={datafetchMcp} title={"MCPs"}/>
+            <PopUpData isShowPopUp={showPopUpData} setShowPopUp={setShowPopUpData} data={datafetch} title={"Colector & Janitor"}/>
+            <PopUpMcp isShowPopUp={showPopUpMcp} setShowPopUp={setShowPopUpMcp} data={datafetchMcp.map(data => data)} title={"MCPs"}/>
 
             <div className="bodyDiv">
                 <div className="flex">
                     <div className="w-1/5"></div>
-                    {/* {console.log(datafetch)} */}
                     <TableDemo
-                        // dataSource={datafetch} // +++++++++++ data +++++++++ 
+                        // dataSource={dataSource} // +++++++++++ data +++++++++ 
                         columns={columns}
 
                         className="w-3/5 mt-10"

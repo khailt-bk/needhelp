@@ -56,12 +56,10 @@ const ModalTitle = styled.div`
 `;
 
 export const PopUpData = ({ isShowPopUp, setShowPopUp, title, data }) => {
-    // console.log(data)
     const modalRef = useRef();
     const columns = [
         {
             dataIndex: "name",
-            // key: "title",
         },
     ]
 
@@ -97,6 +95,8 @@ export const PopUpData = ({ isShowPopUp, setShowPopUp, title, data }) => {
         onChange: onSelectedRowKeysChange
     };
 
+    data.map((item, index) => item.key = index)
+
     return (
         <>
             {isShowPopUp ? (
@@ -112,13 +112,15 @@ export const PopUpData = ({ isShowPopUp, setShowPopUp, title, data }) => {
                                     columns={columns}
                                     pagination={{ pageSize: 6 }}
                                     showHeader={false}
-
                                     rowSelection={rowSelection} />
                             </ModalContent>
                             <div className="flex">
                                 <div className="w-4/5"></div>
                                 <div className="w-1/5 ">
-                                    <Button className="bg-[#2C4E29] text-white">CONTINUE</Button>
+                                    <Button className="bg-[#2C4E29] text-white">ADD</Button>
+                                </div>
+                                <div className="w-1/5 ">
+                                    <Button className="bg-[#2C4E29] text-white">CANCLE</Button>
                                 </div>
                             </div>
 
@@ -176,7 +178,7 @@ export const PopUpMcp = ({ isShowPopUp, setShowPopUp, title, data }) => {
         selectedRowKeys,
         onChange: onSelectedRowKeysChange
     };
-
+    data.map((item, index) => item.key = index)
     return (
         <>
             {isShowPopUp ? (
@@ -198,7 +200,10 @@ export const PopUpMcp = ({ isShowPopUp, setShowPopUp, title, data }) => {
                             <div className="flex">
                                 <div className="w-4/5"></div>
                                 <div className="w-1/5 ">
-                                    <Button className="bg-[#2C4E29] text-white">CONTINUE</Button>
+                                    <Button className="bg-[#2C4E29] text-white">ADD</Button>
+                                </div>
+                                <div className="w-1/5 ">
+                                    <Button className="bg-[#2C4E29] text-white">CANCLE</Button>
                                 </div>
                             </div>
 
